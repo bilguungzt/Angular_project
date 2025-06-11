@@ -1,0 +1,24 @@
+<h1>User Profile Component</h1>
+
+<h2>{{ welcome }}</h2>
+<form [formGroup]="userProfileForm">
+  <label>Name</label>
+  <input name="name" formControlName="name" />
+  <br />
+  <label>Email</label>
+  <input name="email" formControlName="email" />
+  <br />
+  <label>Date of Birth</label>
+  <input name="dob" formControlName="dob" />
+</form>
+<br />
+
+<div>{{ Name }}</div>
+<div>{{ Email }}</div>
+<div>{{ DoB }}</div>
+
+<div>{{ counter }}</div>
+
+<br /><button [disabled]="isInputEmpty" (click)="onReset()">Reset</button>
+
+<br /><button [disabled]="isInputEmpty" (click)="onSave()">Save</button>
