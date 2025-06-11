@@ -1,0 +1,60 @@
+<!-- <ng-container [ngSwitch]="tasks.length">
+  <ng-container *ngSwitch="0">
+    <div>No Task available</div>
+  </ng-container>
+  <ng-container *ngSwitchDefault>
+    <div *ngFor="let task of tasks" appHoverBackground>
+      <p [ngClass]="{ red: task.dueDate < currentDate }">{{ task["title"] }}</p>
+    </div>
+  </ng-container>
+</ng-container> -->
+<!-- <ul>
+  <li *ngFor="let task of tasks">
+    <h1>{{ task.title }}</h1>
+    <p>{{ task.description }}</p>
+  </li>
+</ul> -->
+<div class="controls">
+  <label>
+    Status:
+    <select [(ngModel)]="filterStatus">
+      <option *ngFor="let s of statuses" [value]="s">{{ s }}</option>
+    </select>
+  </label>
+</div>
+
+<div *ngIf="filteredTasks.length === 0">No tasks available</div>
+
+<ul>
+  <li
+    *ngFor="let task of filteredTasks"
+    [ngStyle]="{ 'background-color': isOverdue(task) ? '#ffd9' : null }"
+    appHoverBackground
+  >
+    {{ task.title }}
+    <small
+      >({{ task.status }}, due {{ task.dueDate | date : "shortDate" }})</small
+    >
+  </li>
+</ul>
+
+<hr />
+
+<form (ngSubmit)="addTask()" #f="ngForm">
+  <input
+    name="title"
+    placeholder="Title"
+    [(ngModel)]="newTask.title"
+    required
+  />
+  <input name="dueDate" type="date" [(ngModel)]="newTask.dueDate" />
+  <select name="status" [(ngModel)]="newTask.status">
+    <option *ngFor="let s of statuses.slice(1)" [value]="s">{{ s }}</option>
+  </select>
+  <select name="priority" [(ngModel)]="newTask.priority">
+    <option>Low</option>
+    <option>Medium</option>
+    <option>High</option>
+  </select>
+  <button type="submit">Add Task</button>
+</form>

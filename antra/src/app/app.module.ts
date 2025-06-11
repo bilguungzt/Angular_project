@@ -5,9 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TasklistsComponent } from './tasklists/tasklists.component';
+import { HoverBackgroundDirective } from './tasklists/hover-background.directive';
 
 @NgModule({
-  declarations: [AppComponent, UserprofileComponent],
+  declarations: [AppComponent, UserprofileComponent, TasklistsComponent, HoverBackgroundDirective],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
