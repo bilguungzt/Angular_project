@@ -5,6 +5,7 @@ import { FormControl, FormGroup } from '@angular/forms';
   selector: 'app-userprofile',
   templateUrl: './userprofile.component.html',
   styleUrl: './userprofile.component.scss',
+  standalone: false,
 })
 export class UserprofileComponent {
   counter = 0;

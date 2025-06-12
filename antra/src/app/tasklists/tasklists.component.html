@@ -31,10 +31,8 @@
     [ngStyle]="{ 'background-color': isOverdue(task) ? '#ffd9' : null }"
     appHoverBackground
   >
-    {{ task.title }}
-    <small
-      >({{ task.status }}, due {{ task.dueDate | date : "shortDate" }})</small
-    >
+    <app-task-detail [task]="task" (taskUpdated)="updateTask($event)">
+    </app-task-detail>
   </li>
 </ul>
 
@@ -56,5 +54,5 @@
     <option>Medium</option>
     <option>High</option>
   </select>
-  <button type="submit">Add Task</button>
+  <button type="submit" [disabled]="f.invalid">Add Task</button>
 </form>

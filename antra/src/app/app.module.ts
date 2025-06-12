@@ -7,9 +7,16 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TasklistsComponent } from './tasklists/tasklists.component';
 import { HoverBackgroundDirective } from './tasklists/hover-background.directive';
+import { TaskDetailComponent } from './tasklists/task-detail/task-detail.component';
 
 @NgModule({
-  declarations: [AppComponent, UserprofileComponent, TasklistsComponent, HoverBackgroundDirective],
+  declarations: [
+    AppComponent,
+    UserprofileComponent,
+    TasklistsComponent,
+    HoverBackgroundDirective,
+    TaskDetailComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],

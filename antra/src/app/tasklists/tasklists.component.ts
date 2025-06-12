@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-tasklists',
   templateUrl: './tasklists.component.html',
   styleUrl: './tasklists.component.css',
+  standalone: false,
 })
 export class TasklistsComponent {
   tasks = [
@@ -144,5 +145,12 @@ export class TasklistsComponent {
     this.newTask.dueDate = new Date();
     this.newTask.status = 'Incomplete';
     this.newTask.priority = 'Medium';
+  }
+  updateTask(updatedTask: any) {
+    const index = this.tasks.findIndex((t) => t.id === updatedTask.id);
+
+    if (index !== -1) {
+      this.tasks[index] = updatedTask;
+    }
   }
 }

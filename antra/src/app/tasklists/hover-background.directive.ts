@@ -1,7 +1,8 @@
 import { Directive, HostListener, Renderer2, ElementRef } from '@angular/core';
 
 @Directive({
-  selector: '[appHoverBackground]', // keep this
+  selector: '[appHoverBackground]',
+  standalone: false,
 })
 export class HoverBackgroundDirective {
   constructor(private el: ElementRef, private renderer: Renderer2) {}
